@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="net.imwork.zhanlong.hibernate1.People" table="people">
+
+        <id name="id" column="id" type="long">
+            <generator class="increment"/>
+        </id>
+        <property name="username" column="username" type="string"/>
+        <property name="password" column="password" type="string"/>
+        <property name="telephone" column="telephone" type="long"/>
+        <property name="gender" column="gender" type="character"/>
+        <property name="graduation" column="graduation" type="boolean"/>
+        <property name="birthday" column="birthday" type="date"/>
+        <property name="marryTime" column="marryTime" type="timestamp"/>
+        <property name="file" column="file" type="java.sql.Blob"/>
+
+    </class>
+
+
+</hibernate-mapping>
