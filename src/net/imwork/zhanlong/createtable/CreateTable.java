@@ -1,4 +1,4 @@
-package net.imwork.zhanlong.createTable;
+package net.imwork.zhanlong.createtable;
 
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;

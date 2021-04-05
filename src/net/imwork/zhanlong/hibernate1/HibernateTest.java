@@ -20,9 +20,59 @@ public class HibernateTest
 {
     public static void main(String[] args) throws Exception
     {
-        // savePeople();
+//         savePeople();
+//         savePeople();
+//         savePeople();
 
-        selectPeople();
+//        selectPeople();
+        deletePeople();
+    }
+
+    public static void deletePeople()
+    {
+        Session session = HibernateUtil.openSession();
+        Transaction tx = null;
+        List<People> peoples = null;
+        Iterator<People> iterate = null;
+        try
+        {
+            tx = session.beginTransaction();
+
+            Query<People> query = session.createQuery("from People ");
+
+            // 1.调用Query的list()方法
+//            peoples = query.list();
+//            for (People p : peoples)
+//            {
+//                session.delete(p);
+//            }
+
+            // 2.调用Query的iterate()方法
+            iterate = query.iterate();
+//            while (iterate.hasNext())
+//            {
+//                session.delete(iterate.next());
+//            }
+            tx.commit();
+        }catch (Exception ex)
+        {
+            if (null != tx)
+            {
+                tx.rollback();
+            }
+        }finally
+        {
+            HibernateUtil.closeSession(session);
+        }
+
+//        for (Iterator<People> iterator = peoples.iterator(); iterator.hasNext();)
+//        {
+//            System.out.println(iterator.next().getUsername());
+//        }
+//        while (iterate.hasNext())
+//        {
+//            System.out.println(iterate.next());
+//        }
 
     }
 
