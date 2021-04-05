@@ -15,13 +15,25 @@ public class People
     private long telephone;
 
     /**
-     *  'M','F'
+     * 'M','F'
      */
     private char gender;
     private boolean graduation;
     private Date birthday;
     private Timestamp marryTime;
     private Blob file;
+    private byte[] file2;
+
+    public byte[] getFile2()
+    {
+        return file2;
+    }
+
+    public void setFile2(byte[] file2)
+    {
+        this.file2 = file2;
+    }
+
 
     public Long getId()
     {

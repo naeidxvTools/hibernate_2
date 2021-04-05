@@ -17,6 +17,7 @@
         <property name="birthday" column="birthday" type="date"/>
         <property name="marryTime" column="marryTime" type="timestamp"/>
         <property name="file" column="file" type="java.sql.Blob"/>
+        <property name="file2" column="file2" type="binary"/>
 
     </class>
 
