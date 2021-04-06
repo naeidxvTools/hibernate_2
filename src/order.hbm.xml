@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="net.imwork.zhanlong.hibernate2.Order" table="orders">
+        <id name="id" type="long">
+            <generator class="increment"></generator>
+        </id>
+
+        <property name="orderNumber" type="string">
+            <column name="orderNumber" length="15"></column>
+        </property>
+
+        <many-to-one name="customer" class="net.imwork.zhanlong.hibernate2.Customer" column="customer_id">
+        </many-to-one>
+
+    </class>
+
+
+</hibernate-mapping>

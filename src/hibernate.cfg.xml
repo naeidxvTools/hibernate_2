@@ -11,8 +11,10 @@
         <property name="connection.username">root</property>
         <property name="connection.password">root</property>
         <property name="hibernate.show_sql">true</property>
-        <property name="hibernate.format_sql">true</property>
+<!--        <property name="hibernate.format_sql">true</property>-->
 
-        <mapping resource="People.hbm.xml"/>
+        <mapping resource="Customer.hbm.xml"/>
+        <mapping resource="order.hbm.xml"/>
+
     </session-factory>
 </hibernate-configuration>
