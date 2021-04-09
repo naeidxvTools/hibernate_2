@@ -12,7 +12,7 @@
 
         <property name="name" column="name" type="string"/>
 
-        <set name="orders" cascade="save-update" inverse="true">
+        <set name="orders" cascade="all" inverse="true">
             <key column="customer_id"></key>
             <one-to-many class="net.imwork.zhanlong.hibernate2.Order"></one-to-many>
         </set>

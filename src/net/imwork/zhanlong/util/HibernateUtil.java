@@ -16,7 +16,8 @@ public class HibernateUtil
     {
         try
         {
-            sessionFactory = new Configuration().configure().buildSessionFactory();
+            sessionFactory = new Configuration().configure("hibernate.cfg_sqlserver.xml").buildSessionFactory();
+
         } catch (HibernateException e)
         {
             e.printStackTrace();

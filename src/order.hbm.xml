@@ -13,7 +13,7 @@
             <column name="orderNumber" length="15"></column>
         </property>
 
-        <many-to-one name="customer" class="net.imwork.zhanlong.hibernate2.Customer" column="customer_id">
+        <many-to-one lazy="false" name="customer" class="net.imwork.zhanlong.hibernate2.Customer" column="customer_id">
         </many-to-one>
 
     </class>
