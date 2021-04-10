@@ -17,7 +17,7 @@ public class CreateTable
     public static void main(String[] args)
     {
         //hibernate5中的schemaExport与之前版本中的用法有所不同，具体用法如下:
-        ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().configure().build();
+        ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().configure("hibernate.cfg_mysql.xml").build();
         Metadata metadata = new MetadataSources(serviceRegistry).buildMetadata();
 //        SchemaExport export = new SchemaExport().setFormat(true); // 格式化sql语句
         SchemaExport export = new SchemaExport().setFormat(false);  // 不格式化sql语句

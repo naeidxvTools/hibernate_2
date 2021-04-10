@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="net.imwork.zhanlong.hibernate5.Team" table="team">
+        <id name="id" column="id" type="string">
+           <generator class="uuid"></generator>
+        </id>
+
+        <property name="name" column="name" type="string"/>
+
+        <set name="students" lazy="false" cascade="all" inverse="true">
+            <key column="team_id"></key>
+            <one-to-many class="net.imwork.zhanlong.hibernate5.Student"></one-to-many>
+        </set>
+
+
+
+    </class>
+</hibernate-mapping>

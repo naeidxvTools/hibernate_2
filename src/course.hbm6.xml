@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="net.imwork.zhanlong.hibernate6.Course" table="course">
+
+        <id name="id" column="id">
+            <generator class="uuid"></generator>
+        </id>
+
+        <property name="name" column="name" type="string"/>
+
+        <set name="students" table="student_course" cascade="save-update">
+            <key column="course_id"></key> <!--column是指对方的外键-->
+            <many-to-many class="net.imwork.zhanlong.hibernate6.Student" column="student_id"></many-to-many>
+        </set>
+
+    </class>
+</hibernate-mapping>

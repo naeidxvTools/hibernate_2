@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="net.imwork.zhanlong.hibernate4.Student" table="student">
+    <class name="net.imwork.zhanlong.hibernate5.Student" table="student">
 
         <id name="id" column="id" type="string">
             <generator class="uuid"></generator>
@@ -12,9 +12,11 @@
         <property name="name" column="name" type="string"/>
 
         <!--constrained="true" 设置延迟加载,并且在另外一方的class属性设置为lazy="true"-->
-        <one-to-one name="idCard" class="net.imwork.zhanlong.hibernate4.IdCard" cascade="all" fetch="select">
+        <one-to-one constrained="true" name="idCard" class="net.imwork.zhanlong.hibernate5.IdCard" cascade="all">
         </one-to-one>
 
+        <many-to-one column="team_id" cascade="all" fetch="join" name="team" class="net.imwork.zhanlong.hibernate5.Team">
+        </many-to-one>
 
 
     </class>

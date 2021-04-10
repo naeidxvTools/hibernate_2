@@ -4,9 +4,8 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="net.imwork.zhanlong.hibernate4.IdCard" table="idCard">
+    <class name="net.imwork.zhanlong.hibernate5.IdCard" table="idCard" lazy="false">
 <!--        主键关联-->
-<!--
         <id name="id" column="id" type="string">
             <generator class="foreign">
                 <param name="property">student</param>
@@ -15,18 +14,8 @@
 
         <property name="number" column="number" type="int"/>
 
-        <one-to-one name="student" class="net.imwork.zhanlong.hibernate4.Student" fetch="select">
+        <one-to-one name="student" class="net.imwork.zhanlong.hibernate5.Student" cascade="none">
         </one-to-one>
--->
-<!--        外键关联-->
-        <id name="id" column="id" type="string">
-            <generator class="uuid"></generator>
-        </id>
-
-        <property name="number" column="number" type="int"/>
-
-        <many-to-one name="student" column="student_id" unique="true" class="net.imwork.zhanlong.hibernate4.Student">
-        </many-to-one>
 
 
 
