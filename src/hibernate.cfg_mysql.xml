@@ -16,8 +16,8 @@
 <!--      SessionFactory级别缓存  二级缓存（进程阶段缓存）-->
 
 
-        <mapping resource="student.hbm6.xml"/>
-        <mapping resource="course.hbm6.xml"/>
+        <mapping resource="team.hbm8.xml"/>
+        <mapping resource="student.hbm8.xml"/>
 
     </session-factory>
 </hibernate-configuration>
