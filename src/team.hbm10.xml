@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="net.imwork.zhanlong.hibernate10.Team" table="team">
+        <id name="id" column="id" type="string">
+           <generator class="uuid"/>
+        </id>
+
+        <property name="teamName" column="teamName" type="string"/>
+
+        <list name="students" table="student" cascade="all">
+            <key column="team_id"></key>
+            <index column="index_"></index>  <!-- index是关键字，避免冲突，做法1：`index`;做法2：[index] -->
+            <one-to-many class="net.imwork.zhanlong.hibernate10.Student"></one-to-many>
+        </list>
+
+
+    </class>
+</hibernate-mapping>

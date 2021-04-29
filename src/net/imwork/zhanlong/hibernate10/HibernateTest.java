@@ -1,10 +1,10 @@
-package net.imwork.zhanlong.hibernate8;
+package net.imwork.zhanlong.hibernate10;
 
 import net.imwork.zhanlong.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import java.util.Map;
+import java.util.List;
 
 /**
  * @author Administrator
@@ -12,11 +12,6 @@ import java.util.Map;
 public class HibernateTest
 {
     public static void main(String[] args)
-    {
-        save1();
-    }
-
-    public static void save1()
     {
         Session session = HibernateUtil.openSession();
 
@@ -29,26 +24,28 @@ public class HibernateTest
             Team team = new Team();
             team.setTeamName("team1");
 
-            Map map = team.getStudents();
-
             Student student1 = new Student();
             student1.setName("zhangsan");
-            student1.setAge(20);
+            student1.setAge(12);
+            student1.setCardId("123456");
             student1.setTeam(team);
 
             Student student2 = new Student();
             student2.setName("lisi");
-            student2.setAge(21);
+            student2.setAge(22);
+            student2.setCardId("654321");
             student2.setTeam(team);
 
             Student student3 = new Student();
             student3.setName("wangwu");
-            student3.setAge(22);
+            student3.setAge(32);
+            student3.setCardId("55555");
             student3.setTeam(team);
 
-            map.put("1111", student1);
-            map.put("2222", student2);
-            map.put("3333", student3);
+            List list = team.getStudents();
+            list.add(student1);
+            list.add(student2);
+            list.add(student3);
 
             session.save(team);
 
@@ -64,8 +61,5 @@ public class HibernateTest
         {
             HibernateUtil.closeSession(session);
         }
-
-
-
     }
 }
