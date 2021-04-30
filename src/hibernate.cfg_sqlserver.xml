@@ -25,10 +25,21 @@
         <mapping resource="team.hbm9.xml"/>
         -->
 
-        <!--hibernate10-->
+        <!--hibernate10
         <mapping resource="team.hbm10.xml"/>
         <mapping resource="student.hbm10.xml"/>
+        -->
+        <!--hibernate11
+        <mapping resource="team.hbm11.xml"/>
+        <mapping resource="student.hbm11.xml"/>
+        -->
 
+        <!--hibernate12
+        <mapping resource="team.hbm12.xml"/>
+        -->
+
+        <!--hibernate13-->
+        <mapping resource="team.hbm13.xml"/>
 
     </session-factory>
 </hibernate-configuration>
