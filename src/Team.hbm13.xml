@@ -15,7 +15,7 @@
         <!-- 注意:在hibernate5中，set标签可以使用order-by排序;而map标签不能用order-by排序，只能在sort用自己编写的类进行排序  -->
         <!--         <set name="students" table="student" sort="natural">-->
         <!--         <set name="students" table="student" sort="unsorted">-->
-        <set name="students" table="student" order-by="name asc">
+        <set name="students" table="student" order-by="name desc">
             <key column="team_id"></key>
             <element column="name" type="string"></element>
         </set>

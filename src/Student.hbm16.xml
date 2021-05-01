@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <!-- 联合主键的映射规则1：类中的每个主键属性都对应数据表中的每个主键列 -->
+    <!-- 注意：1.复合主键类必须实现Serializable；2.复合主键类重写equal和hashCode方法。 -->
+    <class name="net.imwork.zhanlong.hibernate16.Student" table="student">
+
+        <composite-id name="studentPrimaryKey" class="net.imwork.zhanlong.hibernate16.StudentPrimaryKey">
+            <key-property name="name" column="name" type="string"/>
+            <key-property name="cardId" column="cardId" type="string"/>
+        </composite-id>
+
+        <property name="age" column="age" type="int"/>
+
+    </class>
+</hibernate-mapping>

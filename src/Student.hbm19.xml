@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="net.imwork.zhanlong.hibernate19.Student" table="student">
+        <id name="id" column="id" type="string">
+            <generator class="uuid"/>
+        </id>
+
+        <property name="name" column="name" type="string"/>
+
+        <property name="cardId" column="cardId" type="string"/>
+
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="net.imwork.zhanlong.hibernate20.Person" table="person">
+        <id name="id" column="id" type="string">
+            <generator class="uuid"/>
+        </id>
+
+        <discriminator column="personType" type="string"/>
+
+        <property name="name" column="name" type="string"/>
+
+        <!-- discriminator 鉴别器 -->
+        <subclass name="net.imwork.zhanlong.hibernate20.Student" discriminator-value="student">
+            <property name="cardId" type="string"/>
+        </subclass>
+        <subclass name="net.imwork.zhanlong.hibernate20.Teacher" discriminator-value="teacher">
+            <property name="salary" type="int"/>
+        </subclass>
+
+    </class>
+</hibernate-mapping>

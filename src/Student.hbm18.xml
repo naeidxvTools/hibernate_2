@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="net.imwork.zhanlong.hibernate18.Student" table="student">
+        <id name="id" column="id" type="string">
+            <generator class="uuid"/>
+        </id>
+
+        <property name="name" column="name" type="string"/>
+
+        <set name="contacts" table="contact">
+            <key column="student_id"/>
+            <composite-element class="net.imwork.zhanlong.hibernate18.Contact">
+                <property name="method" type="string"/>
+                <property name="address" type="string"/>
+            </composite-element>
+        </set>
+
+    </class>
+</hibernate-mapping>

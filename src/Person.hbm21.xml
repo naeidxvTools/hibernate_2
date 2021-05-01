@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="net.imwork.zhanlong.hibernate21.Person" table="person">
+        <id name="id" column="id" type="string">
+            <generator class="uuid"/>
+        </id>
+
+        <property name="name" column="name" type="string"/>
+
+        <joined-subclass name="net.imwork.zhanlong.hibernate21.Student" table="student">
+            <key column="id"></key>
+            <property name="cardId" type="string"/>
+        </joined-subclass>
+
+        <joined-subclass name="net.imwork.zhanlong.hibernate21.Teacher" table="teacher">
+            <key column="id"></key>
+            <property name="salary" type="int"/>
+        </joined-subclass>
+
+    </class>
+</hibernate-mapping>

@@ -11,14 +11,17 @@
 
         <property name="teamName" column="teamName" type="string"/>
 
+        <!--
+            查询排序有内存排序和数据库排序，order-by是数据库排序，也是推荐的一种排序方法；sort是内存排序,它有两个值：natural和unsorted
+        注意：在hibernate5中，这里map标签的order-by不能用，而sort只能用自己编写的类进行排序;而set标签可以使用order-by  -->
+
         <map name="students" table="student" order-by="name desc)">
             <key column="team_id"></key>
             <index column="name" type="string"></index> <!--指定map中的key值-->
             <element column="description" type="string"></element> <!--指定map中的value值-->
         </map>
 
-        <!--  查询排序有内存排序和数据库排序，order-by是数据库排序，也是推荐的一种排序方法；sort是内存排序,它有两个值：natural和unsorted
-        注意：在hibernate5中，这里map标签的order-by不能用，而sort只能用自己编写的类进行排序;而set标签可以使用order-by
+        <!--  sort也可以有第三个值：
         <map name="students" table="student" sort="net.imwork.zhanlong.hibernate12.Team">
             <map name="students" table="student" order-by="name asc">
             <key column="team_id"></key>

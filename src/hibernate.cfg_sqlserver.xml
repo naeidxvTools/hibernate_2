@@ -17,29 +17,65 @@
 
 
         <!--hibernate8
-        <mapping resource="student.hbm8.xml"/>
-        <mapping resource="team.hbm8.xml"/>
+        <mapping resource="Student.hbm8.xml"/>
+        <mapping resource="Team.hbm8.xml"/>
         -->
 
         <!--hibernate9
-        <mapping resource="team.hbm9.xml"/>
+        <mapping resource="Team.hbm9.xml"/>
         -->
 
         <!--hibernate10
-        <mapping resource="team.hbm10.xml"/>
-        <mapping resource="student.hbm10.xml"/>
+        <mapping resource="Team.hbm10.xml"/>
+        <mapping resource="Student.hbm10.xml"/>
         -->
         <!--hibernate11
-        <mapping resource="team.hbm11.xml"/>
-        <mapping resource="student.hbm11.xml"/>
+        <mapping resource="Team.hbm11.xml"/>
+        <mapping resource="Student.hbm11.xml"/>
         -->
 
         <!--hibernate12
-        <mapping resource="team.hbm12.xml"/>
+        <mapping resource="Team.hbm12.xml"/>
         -->
 
-        <!--hibernate13-->
-        <mapping resource="team.hbm13.xml"/>
+        <!--hibernate13
+        <mapping resource="Team.hbm13.xml"/>
+        -->
+
+        <!--hibernate14
+        <mapping resource="Team.hbm14.xml"/>
+        <mapping resource="Student.hbm14.xml"/>
+        -->
+
+        <!--hibernate15
+        <mapping resource="Student.hbm15.xml"/>
+        -->
+
+        <!--hibernate16
+        <mapping resource="Student.hbm16.xml"/>
+        -->
+
+        <!--hibernate17
+        <mapping resource="Student.hbm17.xml"/>
+        -->
+
+        <!--hibernate18
+        <mapping resource="Student.hbm18.xml"/>
+        -->
+
+        <!--hibernate19
+        <mapping resource="Student.hbm19.xml"/>
+        <mapping resource="Teacher.hbm19.xml"/>
+        -->
+
+        <!--hibernate20
+        <mapping resource="Person.hbm20.xml"/>
+        -->
+
+        <!--hibernate21-->
+        <mapping resource="Person.hbm21.xml"/>
+
+
 
     </session-factory>
 </hibernate-configuration>
