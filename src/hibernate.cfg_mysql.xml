@@ -6,7 +6,8 @@
     <session-factory>
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <!--   本案例采用centOS6.5(linux)系统的mysql数据库     -->
-        <property name="connection.url">jdbc:mysql://192.168.0.119:3306/hibernate?serverTimezone=GMT</property>
+<!--        <property name="connection.url">jdbc:mysql://192.168.0.119:3306/hibernate?serverTimezone=GMT</property>-->
+        <property name="connection.url">jdbc:mysql://localhost:3306/hibernate?serverTimezone=GMT</property>
         <property name="dialect">org.hibernate.dialect.MySQL57Dialect</property>
         <property name="connection.username">root</property>
         <property name="connection.password">root</property>
@@ -16,8 +17,8 @@
 <!--      SessionFactory级别缓存  二级缓存（进程阶段缓存）-->
 
 
-        <mapping resource="Team.hbm8.xml"/>
-        <mapping resource="Student.hbm8.xml"/>
+        <mapping resource="People.hbm.xml"/>
+
 
     </session-factory>
 </hibernate-configuration>

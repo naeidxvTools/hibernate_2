@@ -1,9 +1,9 @@
 package net.imwork.zhanlong.hibernate1;
 
+import net.imwork.zhanlong.intercept.TestInterceptor;
 import net.imwork.zhanlong.util.HibernateUtil;
-import org.hibernate.Hibernate;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import org.hibernate.*;
+import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
 import java.io.FileInputStream;
@@ -18,14 +18,32 @@ import java.util.List;
  */
 public class HibernateTest
 {
+    private static SessionFactory sessionFactory_interceptor;
+
+    static
+    {
+        try
+        {
+            sessionFactory_interceptor = new Configuration().
+                    configure("hibernate.cfg_mysql.xml").
+                    setInterceptor(new TestInterceptor()).buildSessionFactory();
+        } catch (HibernateException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+
+
     public static void main(String[] args) throws Exception
     {
-//         savePeople();
-//         savePeople();
-//         savePeople();
-
+         savePeople();
 //        selectPeople();
-        deletePeople();
+//        deletePeople();
+
+
+
+
     }
 
     public static void deletePeople()
@@ -128,7 +146,7 @@ public class HibernateTest
         Session session = HibernateUtil.openSession();
         InputStream is2 = new FileInputStream("e:/qianqian.mp4");
         Blob blob = Hibernate.getLobCreator(session).createBlob(is2, is2.available());
-        people.setFile(blob);
+        people.setFile1(blob);
 
         Transaction tx = null;
 

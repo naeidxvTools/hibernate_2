@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="net.imwork.zhanlong.hibernate24.Student" table="student">
+        <id name="id" column="id" type="string">
+            <generator class="uuid"/>
+        </id>
+
+        <property name="name" column="name" type="string"/>
+        <property name="cardId" column="cardId" type="string"/>
+        <property name="age" column="age" type="int"/>
+
+        <set name="courses" table="student_course" cascade="save-update">
+            <key column="student_id"/>
+            <many-to-many class="net.imwork.zhanlong.hibernate24.Course" column="course_id"/>
+        </set>
+
+        <many-to-one name="team" class="net.imwork.zhanlong.hibernate24.Team" fetch="select" column="team_id">
+        </many-to-one>
+
+    </class>
+</hibernate-mapping>

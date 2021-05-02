@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="net.imwork.zhanlong.hibernate26.Team" table="team">
+
+        <id name="id" column="id" type="string">
+            <generator class="uuid"/>
+        </id>
+
+        <property name="teamName" column="teamName" type="string"/>
+
+        <set name="students" fetch="select" lazy="true" cascade="save-update">
+            <!--
+                1）	transactional：必须在受管的环境下使用，保存可重复读的事务隔离级别，对于读/写比例大，
+                                   很少更新的数据通常可以采取这种方式。
+                2）	read-write：使用timestamp机制维护已提交事务隔离级别，对于读/写比例大，很少更新的数据通常可以采取这种方式。
+                3）	nonstrict-read-write：二级缓存与数据库中的数据可能会出现不一致的情况。在使用这种策略的时候，
+                                   应该设置足够短的缓存过期时间，否则就有可能从缓存中读取到脏数据。
+                                   当一些数据很少改变（一天、两天都不改变的数据），并且这些数据如果出现数据库与缓存不一致的
+                                   情况下影响并不大的时候，那么可以采取这种缓存策略。
+                4）	read-only：当确定数据不会被改变时，我们可以使用这种缓存策略。
+            -->
+<!--            <cache usage="read-write"/>-->
+
+            <key column="team_id"/>
+            <one-to-many class="net.imwork.zhanlong.hibernate26.Student"/>
+        </set>
+    </class>
+</hibernate-mapping>

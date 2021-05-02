@@ -21,7 +21,7 @@ public class People
     private boolean graduation;
     private Date birthday;
     private Timestamp marryTime;
-    private Blob file;
+    private Blob file1;
     private byte[] file2;
 
     public byte[] getFile2()
@@ -115,13 +115,13 @@ public class People
         this.marryTime = marryTime;
     }
 
-    public Blob getFile()
+    public Blob getFile1()
     {
-        return file;
+        return file1;
     }
 
-    public void setFile(Blob file)
+    public void setFile1(Blob file1)
     {
-        this.file = file;
+        this.file1 = file1;
     }
 }

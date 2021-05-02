@@ -16,8 +16,11 @@ public class HibernateUtil
     {
         try
         {
-            sessionFactory = new Configuration().configure("hibernate.cfg_sqlserver.xml").buildSessionFactory();
+            sessionFactory = new Configuration().configure("hibernate.cfg_mysql.xml").buildSessionFactory();
 
+            //设置SessionFactory的拦截器(拦截器用的比较少)
+//            sessionFactory = new Configuration().configure("hibernate.cfg_sqlserver.xml").setInterceptor(new HibernateTest())
+//                    .buildSessionFactory();
         } catch (HibernateException e)
         {
             e.printStackTrace();
@@ -26,7 +29,13 @@ public class HibernateUtil
 
     public static Session openSession()
     {
-        return sessionFactory.openSession();
+        //设置session的拦截器(拦截器用的比较少)
+//        Session session_interceptor = sessionFactory.withOptions().
+//                interceptor(new HibernateTest()).openSession();
+
+        Session session = sessionFactory.openSession();
+
+        return session;
     }
 
     public static void closeSession(Session session)
