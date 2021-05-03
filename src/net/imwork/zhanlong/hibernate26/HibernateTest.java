@@ -16,7 +16,6 @@ public class HibernateTest extends EmptyInterceptor
     {
 //        save();
         select1();
-        System.out.println(2222);
     }
 
     private static void select2()
@@ -72,7 +71,7 @@ public class HibernateTest extends EmptyInterceptor
 
         tx2.commit();
         System.out.println("********************");
-
+        System.exit(0);
     }
 
     private static void save()

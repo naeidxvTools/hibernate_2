@@ -6,18 +6,150 @@
     <session-factory>
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <!--   本案例采用centOS6.5(linux)系统的mysql数据库     -->
-<!--        <property name="connection.url">jdbc:mysql://192.168.0.119:3306/hibernate?serverTimezone=GMT</property>-->
+        <!--        <property name="connection.url">jdbc:mysql://192.168.0.119:3306/hibernate?serverTimezone=GMT</property>-->
         <property name="connection.url">jdbc:mysql://localhost:3306/hibernate?serverTimezone=GMT</property>
         <property name="dialect">org.hibernate.dialect.MySQL57Dialect</property>
         <property name="connection.username">root</property>
         <property name="connection.password">root</property>
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">create</property>
 
-<!--      SessionFactory级别缓存  二级缓存（进程阶段缓存）-->
+        <!-- c3p0 -->
+        <property name="hibernate.connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider
+        </property>
+        <property name="hibernate.c3p0.min_size">10</property>
+        <property name="hibernate.c3p0.max_size">40</property>
+        <property name="hibernate.c3p0.timeout">200</property>
+        <property name="hibernate.c3p0.max_statements">30</property>
+        <property name="hibernate.c3p0.idle_test_period">100</property>
 
+        <!-- SessionFactory级别缓存  二级缓存（进程阶段缓存）;session级别缓存是一级缓存，是必须的，用户不能禁用。-->
+        <!-- 开启二级缓存 -->
+<!--        <property name="hibernate.cache.use_second_level_cache">true</property>-->
 
+        <!--        &lt;!&ndash; 启动"查询缓存"如果想缓存使用findall()、list()、Iterator()、createCriteria()、createQuery()等方法获得的数据结果集,必须配置此项&ndash;&gt;-->
+        <!--        <property name="hibernate.cache.use_query_cache">true</property>-->
+
+        <!-- 高速缓存提供程序 -->
+<!--        <property name="hibernate.cache.region.factory_class">-->
+<!--            org.hibernate.cache.ehcache.internal.EhcacheRegionFactory-->
+<!--        </property>-->
+
+        <!--        &lt;!&ndash; 二级缓存区域名的前缀 &ndash;&gt;-->
+        <!--        <property name="hibernate.cache.region_prefix">test</property>-->
+
+        <!--        &lt;!&ndash; 强制Hibernate以更人性化的格式将数据存入二级缓存 &ndash;&gt;-->
+        <!--        <property name="hibernate.cache.use_structured_entries">true</property>-->
+
+        <!--        &lt;!&ndash; Hibernate将收集有助于性能调节的统计数据 &ndash;&gt;-->
+        <!--        <property name="hibernate.generate_statistics">true</property>-->
+
+        <!--        &lt;!&ndash; 指定缓存配置文件位置 &ndash;&gt;-->
+        <!--        <property name="hibernate.cache.provider_configuration_file_resource_path">-->
+        <!--            ehcache.xml-->
+        <!--        </property>-->
+
+        <!--hibernate1-->
         <mapping resource="People.hbm.xml"/>
+
+
+        <!--hibernate8
+        <mapping resource="Student.hbm8.xml"/>
+        <mapping resource="Team.hbm8.xml"/>
+        -->
+
+        <!--hibernate9
+        <mapping resource="Team.hbm9.xml"/>
+        -->
+
+        <!--hibernate10
+        <mapping resource="Team.hbm10.xml"/>
+        <mapping resource="Student.hbm10.xml"/>
+        -->
+        <!--hibernate11
+        <mapping resource="Team.hbm11.xml"/>
+        <mapping resource="Student.hbm11.xml"/>
+        -->
+
+        <!--hibernate12
+        <mapping resource="Team.hbm12.xml"/>
+        -->
+
+        <!--hibernate13
+        <mapping resource="Team.hbm13.xml"/>
+        -->
+
+        <!--hibernate14
+        <mapping resource="Team.hbm14.xml"/>
+        <mapping resource="Student.hbm14.xml"/>
+        -->
+
+        <!--hibernate15
+        <mapping resource="Student.hbm15.xml"/>
+        -->
+
+        <!--hibernate16
+        <mapping resource="Student.hbm16.xml"/>
+        -->
+
+        <!--hibernate17
+        <mapping resource="Student.hbm17.xml"/>
+        -->
+
+        <!--hibernate18
+        <mapping resource="Student.hbm18.xml"/>
+        -->
+
+        <!--hibernate19
+        <mapping resource="Student.hbm19.xml"/>
+        <mapping resource="Teacher.hbm19.xml"/>
+        -->
+
+        <!--hibernate20
+        <mapping resource="Person.hbm20.xml"/>
+        -->
+
+        <!--hibernate21
+        <mapping resource="Person.hbm21.xml"/>
+        -->
+
+        <!--hibernate22
+        <mapping resource="Student.hbm22.xml"/>
+        <mapping resource="Team.hbm22.xml"/>
+        <mapping resource="Course.hbm22.xml"/>
+        -->
+
+        <!--hibernate23
+        <mapping resource="Student.hbm23.xml"/>
+        <mapping resource="Team.hbm23.xml"/>
+        <mapping resource="Course.hbm23.xml"/>
+        -->
+
+        <!--hibernate24
+        <mapping resource="Student.hbm24.xml"/>
+        <mapping resource="Team.hbm24.xml"/>
+        <mapping resource="Course.hbm24.xml"/>
+        -->
+
+        <!--hibernate25
+        <mapping resource="Student.hbm25.xml"/>
+        -->
+
+        <!--hibernate26
+        <mapping resource="Student.hbm26.xml"/>
+        <mapping resource="Team.hbm26.xml"/>
+        <class-cache class="net.imwork.zhanlong.hibernate26.Student" usage="read-write"/>
+        -->
+
+        <!-- 监听器 -->
+        <!--        <event type="load">-->
+        <!--            <listener class="net.imwork.zhanlong.event.MyLoadListener"></listener>-->
+        <!--        </event>-->
+        <!--        <event type="save">-->
+        <!--            <listener class="net.imwork.zhanlong.event.MySaveListener"></listener>-->
+        <!--        </event>-->
+        <!--        <listener class="net.imwork.zhanlong.event.MySaveListener" type="save"></listener>-->
 
 
     </session-factory>

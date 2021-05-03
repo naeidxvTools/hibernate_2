@@ -37,8 +37,8 @@ public class HibernateTest
 
     public static void main(String[] args) throws Exception
     {
-         savePeople();
-//        selectPeople();
+//         savePeople();
+        selectPeople();
 //        deletePeople();
 
 
@@ -102,7 +102,7 @@ public class HibernateTest
         try
         {
             tx = session.beginTransaction();
-            Query query = session.createQuery("from People ").setFirstResult(1).setMaxResults(5);
+            Query query = session.createQuery("from People ").setFirstResult(0).setMaxResults(5);
 
             List<People> peoples = query.list();
             Iterator iterate = query.iterate();
