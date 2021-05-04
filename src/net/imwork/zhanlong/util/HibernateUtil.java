@@ -27,6 +27,11 @@ public class HibernateUtil
         }
     }
 
+    public static Session getCurrentSession()
+    {
+        return sessionFactory.getCurrentSession();
+    }
+
     public static Session openSession()
     {
         //设置session的拦截器(拦截器用的比较少)

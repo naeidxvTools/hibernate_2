@@ -96,7 +96,7 @@ public class HibernateTest
 
     public static void selectPeople()
     {
-        Session session = HibernateUtil.openSession();
+        Session session = HibernateUtil.getCurrentSession();
         Transaction tx = null;
 
         try
@@ -121,9 +121,6 @@ public class HibernateTest
             }
 
             e.printStackTrace();
-        } finally
-        {
-            HibernateUtil.closeSession(session);
         }
     }
 
