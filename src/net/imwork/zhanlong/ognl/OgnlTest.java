@@ -9,6 +9,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author 展龙
+ */
 public class OgnlTest
 {
     public static void main(String[] args) throws OgnlException
@@ -76,13 +79,14 @@ public class OgnlTest
         System.out.println(Ognl.getValue("#list.get(1)",context,context.getRoot()));
 
         System.out.println("==========Ognl处理Map，其语法格式：#{'key1':'value1','key2':'value2',....}==========");
-        Map<String, String> map = new HashMap<>();
+        Map<String, String> map = new HashMap<>(20);
         map.put("username", "zhangsan");
         map.put("password", "m123");
         context.put("map",map);
+        System.out.println(Ognl.getValue(Ognl.parseExpression("#map"),context,context.getRoot()));
         System.out.println(Ognl.getValue(Ognl.parseExpression("#map['password']"),context,context.getRoot()));
-        System.out.println(Ognl.getValue("#{'key1':'value1','key2':'value2'}['key2']",context,context.getRoot()));
         System.out.println(Ognl.getValue("#{'key1':'value1','key2':'value2'}",context,context.getRoot()));
+        System.out.println(Ognl.getValue("#{'key1':'value1','key2':'value2'}['key2']",context,context.getRoot()));
         System.out.println(Ognl.getValue("#{'key1':'value1','key2':'value2'}.get('key2')",context,context.getRoot()));
         System.out.println(Ognl.getValue("#{'key1':'value1','key2':'value2'}.key1",context,context.getRoot()));
 
@@ -107,15 +111,28 @@ public class OgnlTest
         persons.add(p2);
         persons.add(p3);
         context.put("persons", persons);
-        System.out.println(Ognl.getValue("#persons.{? #this.name.length() > 4}.size()",context,context.getRoot()));//#this代表#persons对象
+
+        //#this代表#person对象
+        System.out.println(Ognl.getValue("#persons.{? #this.name.length() > 4}.size()",context,context.getRoot()));
         System.out.println(Ognl.getValue("#persons.{? #this.name.length() >= 4}[1].dog.friends[0]",context,context.getRoot()));
-        System.out.println(Ognl.getValue("#persons.{? #this.name.length() > 4}.size",context,context.getRoot())); //size是伪属性
+
+        //size是伪属性
+        System.out.println(Ognl.getValue("#persons.{? #this.name.length() > 4}.size",context,context.getRoot()));
+
         System.out.println(Ognl.getValue("#persons.{? #this.name.length() > 4}.isEmpty()",context,context.getRoot()));
-        System.out.println(Ognl.getValue("#persons.{? #this.name.length() > 4}.isEmpty",context,context.getRoot())); //isEmpty是伪属性
-        System.out.println(Ognl.getValue("#persons.{? #this.name.length() > 4}[0]",context,context.getRoot())); //获取集合元素中的第一个元素(元素)
+
+        //isEmpty是伪属性
+        System.out.println(Ognl.getValue("#persons.{? #this.name.length() > 4}.isEmpty",context,context.getRoot()));
+
+        //获取集合元素中的第一个元素(元素)
+        System.out.println(Ognl.getValue("#persons.{? #this.name.length() > 4}[0]",context,context.getRoot()));
         System.out.println(Ognl.getValue("#persons.{? #this.name.length() > 4}",context,context.getRoot()));
-        System.out.println(Ognl.getValue("#persons.{^ #this.name.length() > 4}",context,context.getRoot())); //获取集合中第一个元素（只有一个元素）的集合(集合)
-        System.out.println(Ognl.getValue("#persons.{$ #this.name.length() > 4}.get(0).name",context,context.getRoot())); //获取集合中最后一个元素（只有一个元素）的集合(集合)
+
+        //获取集合中第一个元素（只有一个元素）的集合
+        System.out.println(Ognl.getValue("#persons.{^ #this.name.length() > 4}",context,context.getRoot()));
+
+        //获取集合中最后一个元素（只有一个元素）的集合
+        System.out.println(Ognl.getValue("#persons.{$ #this.name.length() > 4}.get(0).name",context,context.getRoot()));
 
         System.out.println("==========Ognl运算，投影：collection.{expression}==========");
         System.out.println(Ognl.getValue("#persons.{#this.dog || name}",context,context.getRoot()));

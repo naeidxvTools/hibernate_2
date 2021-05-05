@@ -2,19 +2,19 @@ package net.imwork.zhanlong.ognl;
 
 public class MyClass
 {
-    private static String str;
+    private String str;
 
-    public static String getStr()
+    public String getStr()
     {
         return str;
     }
 
-    public static void setStr(String str)
+    public void setStr(String str)
     {
-        MyClass.str = str;
+        this.str = str;
     }
 
-    public static String method()
+    public String method()
     {
         return str + ": hello !";
     }
