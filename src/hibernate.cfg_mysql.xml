@@ -51,7 +51,7 @@
         <!--        </property>-->
 
         <!--hibernate1-->
-        <mapping resource="People.hbm.xml"/>
+        <mapping resource="People.hbm1.xml"/>
 
 
         <!--hibernate8
