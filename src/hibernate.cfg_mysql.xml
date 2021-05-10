@@ -13,7 +13,7 @@
         <property name="connection.password">root</property>
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">true</property>
-        <property name="hibernate.hbm2ddl.auto">create</property>
+<!--        <property name="hibernate.hbm2ddl.auto">create</property>-->
 
         <!-- c3p0 -->
         <property name="hibernate.connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider
