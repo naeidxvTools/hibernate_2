@@ -12,7 +12,11 @@
         <property name="connection.username">root</property>
         <property name="connection.password">root</property>
         <property name="hibernate.show_sql">true</property>
-        <property name="hibernate.format_sql">true</property>
+<!--        <property name="hibernate.format_sql">true</property>-->
+
+        <!-- 如果不加下面的这行代码，会出现这个异常：Exception in thread "main" org.hibernate.HibernateException: No CurrentSessionContext configured!-->
+        <property name="current_session_context_class">thread</property>
+
 <!--        <property name="hibernate.hbm2ddl.auto">create</property>-->
 
         <!-- c3p0 -->
@@ -50,8 +54,14 @@
         <!--            ehcache.xml-->
         <!--        </property>-->
 
-        <!--hibernate1-->
+        <!--hibernate1
         <mapping resource="People.hbm1.xml"/>
+        -->
+
+        <!--hibernate2-->
+        <mapping resource="Customer.hbm2.xml"/>
+        <mapping resource="Order.hbm2.xml"/>
+
 
 
         <!--hibernate8

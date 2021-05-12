@@ -5,6 +5,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 /**
@@ -15,7 +16,8 @@ public class HibernateTest
     public static void main(String[] args)
     {
 //        saveCustomerOrder();
-        deleteCustomerOrder();
+        selectCustomerOrder();
+//        deleteCustomerOrder();
 
     }
 
@@ -83,7 +85,7 @@ public class HibernateTest
 
     public static void selectCustomerOrder()
     {
-        Session session = HibernateUtil.openSession();
+        Session session = HibernateUtil.getCurrentSession();
         Transaction tx = null;
 
         Customer customer = null;
@@ -97,7 +99,7 @@ public class HibernateTest
             System.out.println(customer.getName());
 
             orders = customer.getOrders();
-            System.out.println(orders.getClass());
+            System.out.println(orders);
 
             tx.commit();
 
@@ -108,42 +110,36 @@ public class HibernateTest
                 tx.rollback();
             }
             e.printStackTrace();
-        } finally
-        {
-            HibernateUtil.closeSession(session);
         }
-
-
 
 //        System.out.println("after : " + customer.getName());
 //
-//        for (Iterator<Order> iterator = orders.iterator(); iterator.hasNext();)
-//        {
-//            System.out.println(iterator.next().getOrderNumber());
-//        }
+        for (Iterator<Order> iterator = orders.iterator(); iterator.hasNext();)
+        {
+            System.out.println(iterator.next().getOrderNumber());
+        }
 
     }
 
     public static void saveCustomerOrder()
     {
-        Session session = HibernateUtil.openSession();
+        Session session = HibernateUtil.getCurrentSession();
         Transaction tx = null;
-
 
         try
         {
             tx = session.beginTransaction();
 
             Customer customer = new Customer();
-            customer.setName("lisi");
+            customer.setName("zhangsan");
             customer.setOrders(new HashSet<Order>());
 
             Order order1 = new Order();
-            order1.setOrderNumber("order4");
+            order1.setOrderNumber("order1");
             Order order2 = new Order();
-            order2.setOrderNumber("order5");
+            order2.setOrderNumber("order2");
             Order order3 = new Order();
-            order3.setOrderNumber("order6");
+            order3.setOrderNumber("order3");
 
             order1.setCustomer(customer);
             order2.setCustomer(customer);
@@ -164,13 +160,6 @@ public class HibernateTest
                 tx.rollback();
             }
             e.printStackTrace();
-        } finally
-        {
-            HibernateUtil.closeSession(session);
         }
-
-
     }
-
-
 }

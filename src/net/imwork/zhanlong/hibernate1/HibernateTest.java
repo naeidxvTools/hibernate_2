@@ -37,8 +37,8 @@ public class HibernateTest
 
     public static void main(String[] args) throws Exception
     {
-         savePeople();
-//        selectPeople();
+//         savePeople();
+        selectPeople();
 //        deletePeople();
     }
 
@@ -136,7 +136,7 @@ public class HibernateTest
         is.read(buffer);
         people.setFile2(buffer);
 
-        Session session = HibernateUtil.openSession();
+        Session session = HibernateUtil.getCurrentSession();
         InputStream is2 = new FileInputStream("e:/qianqian.mp4");
         Blob blob = Hibernate.getLobCreator(session).createBlob(is2, is2.available());
         people.setFile1(blob);
@@ -155,10 +155,6 @@ public class HibernateTest
                 tx.rollback();
             }
             e.printStackTrace();
-        }
-        finally
-        {
-            HibernateUtil.closeSession(session);
         }
     }
 }
