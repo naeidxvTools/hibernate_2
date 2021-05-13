@@ -58,10 +58,13 @@
         <mapping resource="People.hbm1.xml"/>
         -->
 
-        <!--hibernate2-->
+        <!--hibernate2
         <mapping resource="Customer.hbm2.xml"/>
         <mapping resource="Order.hbm2.xml"/>
+        -->
 
+        <!--hibernate3-->
+        <mapping resource="Category.hbm3.xml"/>
 
 
         <!--hibernate8

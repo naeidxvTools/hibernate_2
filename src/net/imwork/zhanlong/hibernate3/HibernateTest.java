@@ -13,17 +13,13 @@ public class HibernateTest
 {
     public static void main(String[] args)
     {
-
 //        saveCategories();
-
         selectCategories();
-
-
     }
 
     public static void selectCategories()
     {
-        Session session = HibernateUtil.openSession();
+        Session session = HibernateUtil.getCurrentSession();
 
         Transaction tx = null;
 
@@ -43,9 +39,6 @@ public class HibernateTest
                 tx.rollback();
             }
             e.printStackTrace();
-        } finally
-        {
-            HibernateUtil.closeSession(session);
         }
 
 
@@ -53,7 +46,7 @@ public class HibernateTest
 
     public static void saveCategories()
     {
-          Session session = HibernateUtil.openSession();
+          Session session = HibernateUtil.getCurrentSession();
           Transaction tx = null;
 
         try
@@ -87,7 +80,6 @@ public class HibernateTest
             category3.getChildCategories().add(category7);
 
             session.save(category1);
-            session.load(Category.class, new Long(1));
 
             tx.commit();
         } catch (Exception e)
@@ -97,9 +89,6 @@ public class HibernateTest
                 tx.rollback();
             }
             e.printStackTrace();
-        } finally
-        {
-            HibernateUtil.closeSession(session);
         }
 
     }
