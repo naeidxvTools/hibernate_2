@@ -6,15 +6,14 @@
 
     <class name="net.imwork.zhanlong.hibernate2.Order" table="orders">
         <id name="id" type="long">
-            <generator class="increment"></generator>
+            <generator class="increment"/>
         </id>
 
         <property name="orderNumber" type="string">
-            <column name="orderNumber" length="15"></column>
+            <column name="orderNumber" length="15"/>
         </property>
 
-        <many-to-one lazy="false" name="customer" class="net.imwork.zhanlong.hibernate2.Customer" column="customer_id">
-        </many-to-one>
+        <many-to-one lazy="false" name="customer" class="net.imwork.zhanlong.hibernate2.Customer" column="customer_id"/>
 
     </class>
 

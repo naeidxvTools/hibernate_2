@@ -7,14 +7,14 @@
     <class name="net.imwork.zhanlong.hibernate6.Student" table="student">
 
         <id name="id" column="id">
-            <generator class="uuid"></generator>
+            <generator class="uuid"/>
         </id>
 
         <property name="name" column="name" type="string"/>
 
         <set name="courses" table="student_course" cascade="save-update" inverse="true">
-            <key column="student_id"></key> <!--column是指对方的外键-->
-            <many-to-many class="net.imwork.zhanlong.hibernate6.Course" column="course_id"></many-to-many>
+            <key column="student_id"/> <!--column是指对方的外键-->
+            <many-to-many class="net.imwork.zhanlong.hibernate6.Course" column="course_id"/>
         </set>
 
     </class>

@@ -16,8 +16,8 @@
         <!--         <set name="students" table="student" sort="natural">-->
         <!--         <set name="students" table="student" sort="unsorted">-->
         <set name="students" table="student" order-by="name desc">
-            <key column="team_id"></key>
-            <element column="name" type="string"></element>
+            <key column="team_id"/>
+            <element column="name" type="string"/>
         </set>
 
 

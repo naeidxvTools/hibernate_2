@@ -7,7 +7,7 @@
     <!-- 实现乐观锁的其他方式(不建议使用)： optimistic-lock="all" -->
     <class name="net.imwork.zhanlong.hibernate25.Student" table="student">
         <id name="id" column="id" type="string">
-            <generator class="uuid"></generator>
+            <generator class="uuid"/>
         </id>
 
         <!-- 实现乐观锁的方式：version 或者 timestamp -->

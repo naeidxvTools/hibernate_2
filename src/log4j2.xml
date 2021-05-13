@@ -50,8 +50,8 @@
     <!--然后定义logger，只有定义了logger并引入的appender，appender才会生效-->
     <loggers>off
         <!--过滤掉spring和mybatis的一些无用的DEBUG信息-->
-        <logger name="org.springframework" level="off"></logger>
-        <logger name="org.mybatis" level="off"></logger>
+        <logger name="org.springframework" level="off"/>
+        <logger name="org.mybatis" level="off"/>
         <root level="all">
             <!--            <appender-ref ref="Console"/>-->
             <appender-ref ref="RollingFileInfo"/>

@@ -19,7 +19,7 @@
 <!--        <cache usage="read-write"/>-->
 
         <id name="id" column="id" type="string">
-            <generator class="uuid"></generator>
+            <generator class="uuid"/>
         </id>
 
         <property name="name" column="name" type="string"/>

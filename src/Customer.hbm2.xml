@@ -7,14 +7,14 @@
     <class name="net.imwork.zhanlong.hibernate2.Customer" table="customer">
 
         <id name="id" column="id" type="java.lang.Long">
-            <generator class="increment"></generator>
+            <generator class="increment"/>
         </id>
 
         <property name="name" column="name" type="string"/>
 
-        <set name="orders" cascade="all" inverse="true">
-            <key column="customer_id"></key>
-            <one-to-many class="net.imwork.zhanlong.hibernate2.Order"></one-to-many>
+        <set name="orders" cascade="all" inverse="true" lazy="false">
+            <key column="customer_id"/>
+            <one-to-many class="net.imwork.zhanlong.hibernate2.Order"/>
         </set>
 
     </class>

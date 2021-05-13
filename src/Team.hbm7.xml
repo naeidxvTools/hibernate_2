@@ -6,15 +6,15 @@
 
     <class name="net.imwork.zhanlong.hibernate7.Team" table="team">
         <id name="id" column="id" type="string">
-           <generator class="uuid"></generator>
+           <generator class="uuid"/>
         </id>
 
         <property name="teamName" column="teamName" type="string"/>
 
         <map name="students" table="student">
-            <key column="team_id"></key>
-            <index column="name" type="string"></index> <!--指定map中的key值-->
-            <element column="description" type="string"></element> <!--指定map中的value值-->
+            <key column="team_id"/>
+            <index column="name" type="string"/> <!--指定map中的key值-->
+            <element column="description" type="string"/> <!--指定map中的value值-->
         </map>
 
 

@@ -7,10 +7,10 @@
     <class name="net.imwork.zhanlong.hibernate14.Team" table="team">
 
         <id name="id" column="id" type="string">
-            <generator class="uuid"></generator>
+            <generator class="uuid"/>
         </id>
 
-        <property name="name" column="name" type="string"></property>
+        <property name="name" column="name" type="string"/>
 
         <!--
             查询排序有内存排序和数据库排序，order-by是数据库排序，也是推荐的一种排序方法；sort是内存排序,它有两个值：natural和unsorted
@@ -19,7 +19,7 @@
 
         <!--        <set name="students" lazy="false" cascade="all" inverse="true" order-by="name desc">-->
         <set name="students" lazy="false" cascade="all" inverse="true" sort="net.imwork.zhanlong.hibernate14.MyComparator">
-            <key column="team_id"></key>
+            <key column="team_id"/>
             <one-to-many class="net.imwork.zhanlong.hibernate14.Student"/>
         </set>
 

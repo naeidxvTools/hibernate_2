@@ -7,12 +7,12 @@
     <class name="net.imwork.zhanlong.hibernate14.Student" table="student">
 
         <id name="id" column="id" type="string">
-            <generator class="uuid"></generator>
+            <generator class="uuid"/>
         </id>
 
-        <property name="name" column="name" type="string"></property>
-        <property name="cardId" column="cardId" type="string"></property>
-        <property name="age" column="age" type="integer"></property>
+        <property name="name" column="name" type="string"/>
+        <property name="cardId" column="cardId" type="string"/>
+        <property name="age" column="age" type="integer"/>
 
         <many-to-one name="team" class="net.imwork.zhanlong.hibernate14.Team" column="team_id" cascade="all">
         </many-to-one>

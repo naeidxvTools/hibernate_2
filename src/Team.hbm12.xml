@@ -6,7 +6,7 @@
 
     <class name="net.imwork.zhanlong.hibernate12.Team" table="team">
         <id name="id" column="id" type="string">
-           <generator class="uuid"></generator>
+           <generator class="uuid"/>
         </id>
 
         <property name="teamName" column="teamName" type="string"/>
@@ -16,9 +16,9 @@
         注意：在hibernate5中，这里map标签的order-by不能用，而sort只能用自己编写的类进行排序;而set标签可以使用order-by  -->
 
         <map name="students" table="student" order-by="name desc)">
-            <key column="team_id"></key>
-            <index column="name" type="string"></index> <!--指定map中的key值-->
-            <element column="description" type="string"></element> <!--指定map中的value值-->
+            <key column="team_id"/>
+            <index column="name" type="string"/> <!--指定map中的key值-->
+            <element column="description" type="string"/> <!--指定map中的value值-->
         </map>
 
         <!--  sort也可以有第三个值：

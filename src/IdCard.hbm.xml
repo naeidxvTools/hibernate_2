@@ -20,7 +20,7 @@
 -->
 <!--        外键关联-->
         <id name="id" column="id" type="string">
-            <generator class="uuid"></generator>
+            <generator class="uuid"/>
         </id>
 
         <property name="number" column="number" type="int"/>

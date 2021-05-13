@@ -12,9 +12,9 @@
         <property name="teamName" column="teamName" type="string"/>
 
         <list name="students" table="student" cascade="all">
-            <key column="team_id"></key>
-            <index column="index_"></index>  <!-- index是关键字，避免冲突，做法1：`index`;做法2：[index] -->
-            <one-to-many class="net.imwork.zhanlong.hibernate10.Student"></one-to-many>
+            <key column="team_id"/>
+            <index column="index_"/>  <!-- index是关键字，避免冲突，做法1：`index`;做法2：[index] -->
+            <one-to-many class="net.imwork.zhanlong.hibernate10.Student"/>
         </list>
 
 

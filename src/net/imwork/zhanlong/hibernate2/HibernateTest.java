@@ -17,6 +17,7 @@ public class HibernateTest
     {
 //        saveCustomerOrder();
         selectCustomerOrder();
+//        selectCustomerOrder2();
 //        deleteCustomerOrder();
 
     }
@@ -53,7 +54,7 @@ public class HibernateTest
 
     public static void selectCustomerOrder2()
     {
-        Session session = HibernateUtil.openSession();
+        Session session = HibernateUtil.getCurrentSession();
         Transaction tx = null;
 
         Order order = null;
@@ -75,11 +76,7 @@ public class HibernateTest
                 tx.rollback();
             }
             e.printStackTrace();
-        } finally
-        {
-            HibernateUtil.closeSession(session);
         }
-
         System.out.println(order.getCustomer().getName());
     }
 
@@ -113,7 +110,7 @@ public class HibernateTest
         }
 
 //        System.out.println("after : " + customer.getName());
-//
+
         for (Iterator<Order> iterator = orders.iterator(); iterator.hasNext();)
         {
             System.out.println(iterator.next().getOrderNumber());
