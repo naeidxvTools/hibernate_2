@@ -63,8 +63,13 @@
         <mapping resource="Order.hbm2.xml"/>
         -->
 
-        <!--hibernate3-->
+        <!--hibernate3
         <mapping resource="Category.hbm3.xml"/>
+        -->
+
+        <!--hibernate4-->
+        <mapping resource="Student.hbm4.xml"/>
+        <mapping resource="IdCard.hbm4.xml"/>
 
 
         <!--hibernate8
