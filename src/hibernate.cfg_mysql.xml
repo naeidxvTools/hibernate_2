@@ -67,10 +67,24 @@
         <mapping resource="Category.hbm3.xml"/>
         -->
 
-        <!--hibernate4-->
+        <!--hibernate4
         <mapping resource="Student.hbm4.xml"/>
         <mapping resource="IdCard.hbm4.xml"/>
+        -->
 
+        <!--hibernate5-->
+        <mapping resource="Student.hbm5.xml"/>
+        <mapping resource="IdCard.hbm5.xml"/>
+        <mapping resource="Team.hbm5.xml"/>
+
+        <!--hibernate6
+        <mapping resource="Student.hbm6.xml"/>
+        <mapping resource="Course.hbm6.xml"/>
+        -->
+
+        <!--hibernate7
+        <mapping resource="Team.hbm7.xml"/>
+        -->
 
         <!--hibernate8
         <mapping resource="Student.hbm8.xml"/>
