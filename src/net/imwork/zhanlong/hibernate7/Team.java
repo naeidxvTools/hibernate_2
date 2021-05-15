@@ -10,7 +10,7 @@ public class Team
 {
     private String id;
     private String teamName;
-    private Map students = new HashMap<>();
+    private Map<String,String> students = new HashMap<>();
 
     public String getId()
     {
@@ -32,12 +32,12 @@ public class Team
         this.teamName = teamName;
     }
 
-    public Map getStudents()
+    public Map<String, String> getStudents()
     {
         return students;
     }
 
-    public void setStudents(Map students)
+    public void setStudents(Map<String, String> students)
     {
         this.students = students;
     }

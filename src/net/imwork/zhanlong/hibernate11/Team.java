@@ -14,7 +14,7 @@ public class Team
     /**
      *  hibernate使用List模拟Bag
      */
-    private List students = new ArrayList();
+    private List<Student> students = new ArrayList<>();
 
     public String getId()
     {
@@ -36,12 +36,12 @@ public class Team
         this.teamName = teamName;
     }
 
-    public List getStudents()
+    public List<Student> getStudents()
     {
         return students;
     }
 
-    public void setStudents(List students)
+    public void setStudents(List<Student> students)
     {
         this.students = students;
     }

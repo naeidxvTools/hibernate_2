@@ -72,10 +72,11 @@
         <mapping resource="IdCard.hbm4.xml"/>
         -->
 
-        <!--hibernate5-->
+        <!--hibernate5
         <mapping resource="Student.hbm5.xml"/>
         <mapping resource="IdCard.hbm5.xml"/>
         <mapping resource="Team.hbm5.xml"/>
+        -->
 
         <!--hibernate6
         <mapping resource="Student.hbm6.xml"/>
@@ -99,6 +100,7 @@
         <mapping resource="Team.hbm10.xml"/>
         <mapping resource="Student.hbm10.xml"/>
         -->
+
         <!--hibernate11
         <mapping resource="Team.hbm11.xml"/>
         <mapping resource="Student.hbm11.xml"/>
@@ -108,9 +110,9 @@
         <mapping resource="Team.hbm12.xml"/>
         -->
 
-        <!--hibernate13
+        <!--hibernate13-->
         <mapping resource="Team.hbm13.xml"/>
-        -->
+
 
         <!--hibernate14
         <mapping resource="Team.hbm14.xml"/>

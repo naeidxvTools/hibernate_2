@@ -18,8 +18,7 @@ public class HibernateTest
 
     public static void save1()
     {
-        Session session = HibernateUtil.openSession();
-
+        Session session = HibernateUtil.getCurrentSession();
         Transaction tx = null;
 
         try
@@ -45,6 +44,7 @@ public class HibernateTest
             student3.setName("wangwu");
             student3.setAge(22);
             student3.setTeam(team);
+            student3.setCardId("xxx");
 
             map.put("1111", student1);
             map.put("2222", student2);
@@ -60,12 +60,6 @@ public class HibernateTest
                 tx.rollback();
             }
             exception.printStackTrace();
-        }finally
-        {
-            HibernateUtil.closeSession(session);
         }
-
-
-
     }
 }

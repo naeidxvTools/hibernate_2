@@ -4,8 +4,6 @@ import net.imwork.zhanlong.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
@@ -16,16 +14,13 @@ public class HibernateTest
 {
     public static void main(String[] args)
     {
-
 //        save1();
         select1();
-
-
     }
 
     private static void select1()
     {
-        Session session = HibernateUtil.openSession();
+        Session session = HibernateUtil.getCurrentSession();
         Transaction tx = null;
 
         try
@@ -34,15 +29,13 @@ public class HibernateTest
 
             Team team = (Team) session.createQuery("from Team t where t.teamName = 'team1'").uniqueResult();
 
-            Map map = team.getStudents();
+            Map<String, String> map = team.getStudents();
 
-            Set set = map.keySet();
+            Set<String> set = map.keySet();
 
-            Iterator iterator = set.iterator();
-
-            while (iterator.hasNext())
+            for (String s : set)
             {
-                System.out.println(iterator.next());
+                System.out.println(s);
             }
 
             tx.commit();
@@ -53,15 +46,12 @@ public class HibernateTest
                 tx.rollback();
             }
             e.printStackTrace();
-        } finally
-        {
-            HibernateUtil.closeSession(session);
         }
     }
 
     public static void save1()
     {
-        Session session = HibernateUtil.openSession();
+        Session session = HibernateUtil.getCurrentSession();
         Transaction tx = null;
 
         try
@@ -81,7 +71,6 @@ public class HibernateTest
 
             session.save(team);
 
-
             tx.commit();
         } catch (Exception e)
         {
@@ -90,10 +79,6 @@ public class HibernateTest
                 tx.rollback();
             }
             e.printStackTrace();
-        } finally
-        {
-            HibernateUtil.closeSession(session);
         }
-
     }
 }

@@ -14,20 +14,20 @@ public class HibernateTest
 {
     public static void main(String[] args)
     {
-        //save1();
+//        save1();
         select();
     }
 
     private static void select()
     {
-        Session session = HibernateUtil.openSession();
+        Session session = HibernateUtil.getCurrentSession();
         Transaction tx = null;
 
         try
         {
             tx = session.beginTransaction();
 
-            Team team = session.get(Team.class,"4028b88179257d640179257d67620000");
+            Team team = session.get(Team.class,"4028b881796febc201796febc5ff0000");
 
             Set set = team.getStudents();
 
@@ -48,16 +48,12 @@ public class HibernateTest
                 tx.rollback();
             }
             e.printStackTrace();
-        } finally
-        {
-            HibernateUtil.closeSession(session);
         }
     }
 
     public static void save1()
     {
-        Session session = HibernateUtil.openSession();
-
+        Session session = HibernateUtil.getCurrentSession();
         Transaction tx = null;
 
         try
@@ -81,9 +77,6 @@ public class HibernateTest
                 tx.rollback();
             }
             exception.printStackTrace();
-        }finally
-        {
-            HibernateUtil.closeSession(session);
         }
     }
 }

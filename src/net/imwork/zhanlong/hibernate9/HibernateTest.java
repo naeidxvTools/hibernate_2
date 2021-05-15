@@ -11,7 +11,7 @@ public class HibernateTest
 {
     public static void main(String[] args)
     {
-        Session session = HibernateUtil.openSession();
+        Session session = HibernateUtil.getCurrentSession();
 
         Transaction tx = null;
 
@@ -36,9 +36,6 @@ public class HibernateTest
                 tx.rollback();
             }
             exception.printStackTrace();
-        }finally
-        {
-            HibernateUtil.closeSession(session);
         }
     }
 }

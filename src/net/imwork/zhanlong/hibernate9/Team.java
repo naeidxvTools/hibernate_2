@@ -10,7 +10,7 @@ public class Team
 {
     private String id;
     private String teamName;
-    private Set students = new HashSet();
+    private Set<String> students = new HashSet<>();
 
     public String getId()
     {
@@ -32,12 +32,12 @@ public class Team
         this.teamName = teamName;
     }
 
-    public Set getStudents()
+    public Set<String> getStudents()
     {
         return students;
     }
 
-    public void setStudents(Set students)
+    public void setStudents(Set<String> students)
     {
         this.students = students;
     }

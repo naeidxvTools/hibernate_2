@@ -11,15 +11,12 @@ public class HibernateTest
 {
     public static void main(String[] args)
     {
-
         save1();
-
-
     }
 
     public static void save1()
     {
-        Session session = HibernateUtil.openSession();
+        Session session = HibernateUtil.getCurrentSession();
         Transaction tx = null;
 
         try
@@ -34,7 +31,6 @@ public class HibernateTest
 
             session.save(team);
 
-
             tx.commit();
         } catch (Exception e)
         {
@@ -43,10 +39,6 @@ public class HibernateTest
                 tx.rollback();
             }
             e.printStackTrace();
-        } finally
-        {
-            HibernateUtil.closeSession(session);
         }
-
     }
 }
