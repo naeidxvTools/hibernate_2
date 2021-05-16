@@ -14,14 +14,13 @@ public class HibernateTest
 	{
 //		save();
 		select();
-
-
 	}
 
+	@SuppressWarnings("unused")
 	private static void save()
 	{
 
-		Session session = HibernateUtil.openSession();
+		Session session = HibernateUtil.getCurrentSession();
 		Transaction tx = null;
 		try
 		{
@@ -48,15 +47,12 @@ public class HibernateTest
 			}
 			ex.printStackTrace();
 		}
-		finally
-		{
-			HibernateUtil.closeSession(session);
-		}
 	}
 
+	@SuppressWarnings("unused")
 	private static void select()
 	{
-		Session session = HibernateUtil.openSession();
+		Session session = HibernateUtil.getCurrentSession();
 		Transaction tx = null;
 
 		try
@@ -64,8 +60,8 @@ public class HibernateTest
 			tx = session.beginTransaction();
 
 			StudentPrimaryKey studentPrimaryKey = new StudentPrimaryKey();
-			studentPrimaryKey.setCardId("123456");
-			studentPrimaryKey.setName("张三");
+			studentPrimaryKey.setCardId("654321");
+			studentPrimaryKey.setName("李四");
 
 			Student student = session.get(Student.class, studentPrimaryKey);
 			System.out.println(student.getAge());
@@ -79,10 +75,6 @@ public class HibernateTest
 				tx.rollback();
 			}
 			ex.printStackTrace();
-		}
-		finally
-		{
-			HibernateUtil.closeSession(session);
 		}
 	}
 }

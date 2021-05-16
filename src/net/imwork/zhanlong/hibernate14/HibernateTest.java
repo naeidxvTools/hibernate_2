@@ -5,7 +5,6 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 
 /**
@@ -22,10 +21,11 @@ public class HibernateTest
 
 	}
 
+	@SuppressWarnings("unused")
 	private static void save()
 	{
 
-		Session session = HibernateUtil.openSession();
+		Session session = HibernateUtil.getCurrentSession();
 		Transaction tx = null;
 		try
 		{
@@ -83,28 +83,25 @@ public class HibernateTest
 				tx.rollback();
 			}
 		}
-		finally
-		{
-			HibernateUtil.closeSession(session);
-		}
 	}
 
+	@SuppressWarnings("unused")
 	private static void select()
 	{
-		Session session = HibernateUtil.openSession();
+		Session session = HibernateUtil.getCurrentSession();
 		Transaction tx = null;
 
 		try
 		{
 			tx = session.beginTransaction();
 
-			Team team = (Team)session.get(Team.class, "4028b8817925bfe0017925bfe3f00000");
+			Team team = session.get(Team.class, "4028b881797282a101797282a6c00000");
 
 			Set<Student> set = team.getStudents();
 
-			for(Iterator<Student> iter = set.iterator(); iter.hasNext();)
+			for(Student s : set)
 			{
-				System.out.println(iter.next().getName());
+				System.out.println(s.getName());
 			}
 
 			tx.commit();
@@ -115,10 +112,6 @@ public class HibernateTest
 			{
 				tx.rollback();
 			}
-		}
-		finally
-		{
-			HibernateUtil.closeSession(session);
 		}
 	}
 }
