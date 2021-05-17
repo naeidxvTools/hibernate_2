@@ -20,12 +20,17 @@ public class CreateTable
         ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().configure("hibernate.cfg_mysql.xml").build();
         Metadata metadata = new MetadataSources(serviceRegistry).buildMetadata();
 //        SchemaExport export = new SchemaExport().setFormat(true); // 格式化sql语句
-        SchemaExport export = new SchemaExport().setFormat(false);  // 不格式化sql语句
+        /*
+        不格式化sql语句
+         */
+        SchemaExport export = new SchemaExport().setFormat(false);
         export.create(EnumSet.of(TargetType.DATABASE), metadata);
 
-        //hibernate3中的schemaExport用法
-//        SchemaExport export = new SchemaExport(new Configuration().configure());
-//        export.create(true, false);
+        /*hibernate3中的schemaExport用法
+        SchemaExport export = new SchemaExport(new Configuration().configure());
+        export.create(true, false);
+        */
+
     }
 
 }

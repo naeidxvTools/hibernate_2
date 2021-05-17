@@ -16,8 +16,8 @@ public class HibernateTest
     public static void main(String[] args)
     {
 //        save();
-//        select_of_hql();
-        select2();
+        select_of_hql();
+//        select2();
     }
 
     private static void select2()
@@ -98,18 +98,18 @@ public class HibernateTest
 //            }
 //*********************************************************************************************************
 //            Query query = session.createQuery("from Team t join t.students");
-//            Query query = session.createQuery("from Team t left join t.students");
-//            List list = query.list();
-//
-//            for (int i = 0; i < list.size(); i++)
-//            {
-//                Object[] objects = (Object[]) list.get(i);
-//                Team team = (Team) objects[0];
-//                Student student  = (Student)objects[1];
-//                System.out.println(team.getTeamName() + " :: " + student.getName());
-//                System.out.println("------------------------------");
-//            }
-//*********************************************************************************************************
+            Query query = session.createQuery("from Team t left join t.students");
+            List list = query.list();
+
+            for (int i = 0; i < list.size(); i++)
+            {
+                Object[] objects = (Object[]) list.get(i);
+                Team team = (Team) objects[0];
+                Student student  = (Student)objects[1];
+                System.out.println(team.getTeamName() + " :: " + student.getName());
+                System.out.println("------------------------------");
+            }
+
 
             tx.commit();
         } catch (Exception e)
@@ -126,9 +126,10 @@ public class HibernateTest
     }
 
 
+    @SuppressWarnings({"unused"})
     private static void save()
     {
-        Session session = HibernateUtil.openSession();
+        Session session = HibernateUtil.getCurrentSession();
         Transaction tx = null;
 
         try
@@ -229,9 +230,6 @@ public class HibernateTest
             {
                 tx.rollback();
             }
-        } finally
-        {
-            HibernateUtil.closeSession(session);
         }
     }
 }

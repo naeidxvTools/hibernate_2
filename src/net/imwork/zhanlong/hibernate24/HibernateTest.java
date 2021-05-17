@@ -73,7 +73,7 @@ public class HibernateTest
     private static void select2()
     {
         //1.创建Session对象
-        Session session = HibernateUtil.openSession();
+        Session session = HibernateUtil.getCurrentSession();
 
         //2.创建CriteriaBuilder对象
         CriteriaBuilder builder = session.getCriteriaBuilder();
@@ -100,7 +100,7 @@ public class HibernateTest
 
     private static void save()
     {
-        Session session = HibernateUtil.openSession();
+        Session session = HibernateUtil.getCurrentSession();
         Transaction tx = null;
 
         try
@@ -201,9 +201,6 @@ public class HibernateTest
             {
                 tx.rollback();
             }
-        } finally
-        {
-            HibernateUtil.closeSession(session);
         }
     }
 }

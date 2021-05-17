@@ -63,10 +63,10 @@ public class HibernateTest
         }
     }
 
-
+    @SuppressWarnings("unused")
     private static void save()
     {
-        Session session = HibernateUtil.openSession();
+        Session session = HibernateUtil.getCurrentSession();
         Transaction tx = null;
 
         try
@@ -167,9 +167,6 @@ public class HibernateTest
             {
                 tx.rollback();
             }
-        } finally
-        {
-            HibernateUtil.closeSession(session);
         }
     }
 }

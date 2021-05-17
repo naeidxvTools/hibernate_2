@@ -123,9 +123,9 @@
         <mapping resource="Student.hbm15.xml"/>
         -->
 
-        <!--hibernate16-->
+        <!--hibernate16
         <mapping resource="Student.hbm16.xml"/>
-
+        -->
 
         <!--hibernate17
         <mapping resource="Student.hbm17.xml"/>
@@ -148,11 +148,11 @@
         <mapping resource="Person.hbm21.xml"/>
         -->
 
-        <!--hibernate22
+        <!--hibernate22-->
         <mapping resource="Student.hbm22.xml"/>
         <mapping resource="Team.hbm22.xml"/>
         <mapping resource="Course.hbm22.xml"/>
-        -->
+
 
         <!--hibernate23
         <mapping resource="Student.hbm23.xml"/>
